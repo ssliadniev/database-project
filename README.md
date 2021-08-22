@@ -1,7 +1,5 @@
 # database-project
 
-# First project
-
 Create a database architecture, a script for creating a database in python and various queries.
 
 Here is ER-diagram for database.
