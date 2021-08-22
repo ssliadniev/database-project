@@ -6,7 +6,7 @@ Create a database architecture, a script for creating a database in python and v
 
 Here is ER-diagram for database.
 
-![ER-diagram](https://github.com/ssliadniev/database-project/blob/develop/database-project/images/ER-diagram.png)
+![ER-diagram](https://github.com/ssliadniev/database-project/blob/develop/images/ER-diagram_DB.png)
 
 ---
 
