@@ -36,7 +36,7 @@ def get_parser() -> ArgumentParser:
     )
     parser.add_argument(
         "--insert_data",
-        type=str,
+        type=bool,
         choices=[True, False],
         default=False,
         help="Populate tables with generated data or not.",
@@ -315,6 +315,31 @@ def first_db_request(connection) -> DataFrame:
     try:
         cursor = connection.cursor()
         cursor.execute(first_select_query)
+        users_data = cursor.fetchall()
+    except (Exception, DatabaseError) as error:
+        print(error)
+        raise SystemExit
+
+    users_df = DataFrame(
+        users_data,
+        columns=["First name", "Last name", "Number of products in the cart"],
+    )
+    return users_df
+
+
+def second_db_request(connection) -> DataFrame:
+    second_select_query: str
+
+    second_select_query = """
+        SELECT first_name,
+               last_name,
+               
+        FROM users
+    """
+
+    try:
+        cursor = connection.cursor()
+        cursor.execute(second_select_query)
         users_data = cursor.fetchall()
     except (Exception, DatabaseError) as error:
         print(error)
